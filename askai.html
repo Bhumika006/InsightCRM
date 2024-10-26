@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ask AI - InsightCRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  /* Global Styles */
+  body {
+    background: #f7f9fc;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4E3D42;
+    padding: 15px 30px;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar h1 {
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+
+  .nav-links a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #e0e0e0;
+  }
+
+  /* Ask AI Section */
+  .ask-ai-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ask-ai-container h2 {
+    font-size: 28px;
+    color: #6D6466;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .ask-ai-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .ask-ai-form textarea {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    resize: none;
+    height: 150px;
+  }
+
+  .ask-ai-form button {
+    padding: 12px;
+    background-color: #6D6466;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .ask-ai-form button:hover {
+    background-color: #0056b3;
+  }
+
+  .ai-response {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eef2f7;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+</style>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1>InsightCRM</h1>
+    <nav class="nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="ask-ai.html">Ask AI</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Ask AI Section -->
+  <section class="ask-ai-container">
+    <h2>Ask the AI</h2>
+    <form class="ask-ai-form" id="ai-form">
+      <textarea id="question" placeholder="Ask your question here..."></textarea>
+      <button type="button" onclick="getAIResponse()">Submit</button>
+    </form>
+    <div class="ai-response" id="ai-response"></div>
+  </section>
+
+  <script>
+    // JavaScript to simulate AI response (for demonstration purposes)
+    function getAIResponse() {
+      const question = document.getElementById("question").value;
+      const responseDiv = document.getElementById("ai-response");
+
+      if (question.trim()) {
+        responseDiv.innerHTML = "<strong>AI's Response:</strong> " + simulateAIResponse(question);
+      } else {
+        responseDiv.innerHTML = "<strong>Please ask a question!</strong>";
+      }
+    }
+
+    // Simulated AI response function
+    function simulateAIResponse(question) {
+      return "This is a simulated response for: \"" + question + "\". (In real scenario, this will be replaced by an AI API response.)";
+    }
+  </script>
+
+</body>
+</html>
