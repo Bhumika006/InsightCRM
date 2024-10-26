@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Demand and Price Prediction</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e2e3e5;
+            border-radius: 4px;
+        }
+
+        .result h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .result p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Demand Prediction</h1>
+        <form method="POST" action="/predict_demand">
+            <div class="form-group">
+                <label for="footfall">Footfall:</label>
+                <input type="number" step="any" name="footfall" required>
+            </div>
+            <div class="form-group">
+                <label for="buying_habits">Buying Habits:</label>
+                <input type="number" step="any" name="buying_habits" required>
+            </div>
+            <div class="form-group">
+                <label for="latest_trends">Latest Trends:</label>
+                <input type="number" step="any" name="latest_trends" required>
+            </div>
+            <button type="submit">Predict Demand</button>
+        </form>
+
+            <div class="result">
+                <h2>Demand Prediction Results:</h2>
+                <p>Predicted Demand: {{ predicted_demand }}</p>
+                <p>Suggested Inventory Level: {{ suggested_inventory }}</p>
+            </div>
+
+        <h1>Cotton Clothes Price Prediction</h1>
+        <form method="POST" action="/predict_price">
+            <div class="form-group">
+                <label for="Product_Type">Product Type:</label>
+                <input type="text" name="Product_Type" required>
+            </div>
+            <div class="form-group">
+                <label for="Color">Color:</label>
+                <input type="text" name="Color" required>
+            </div>
+            <div class="form-group">
+                <label for="Size">Size:</label>
+                <input type="text" name="Size" required>
+            </div>
+            <div class="form-group">
+                <label for="Material">Material:</label>
+                <input type="text" name="Material" required>
+            </div>
+            <div class="form-group">
+                <label for="Brand">Brand:</label>
+                <input type="text" name="Brand" required>
+            </div>
+            <button type="submit">Predict Price</button>
+        </form>
+
+            <div class="result">
+                <h2>Price Prediction Result:</h2>
+                <p>Predicted Price: {{ predicted_price }}</p>
+            </div>
+    </div>
+</body>
+</html>
